@@ -5,53 +5,66 @@ import {
   CardContent,
   Typography,
   Button,
+  CardHeader,
+  Avatar,
+  IconButton,
+  CardMedia
 } from "@material-ui/core";
+import ShareIcon from "@material-ui/icons/Share";
 import { makeStyles } from "@material-ui/styles";
 
 const useStyles = makeStyles(() => ({
-  root: {
- 
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
   title: {
     fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+  }
 }));
 
-const ProductCard = () => {
+const ProductCard = (props) => {
   const classes = useStyles();
+  const {avatarSrc, title, subTitle, description, imgSrc} = props
 
   return (
     <Card className={classes.root}>
+      <CardHeader
+        avatar={
+          <Avatar
+            aria-label="recipe"
+            className={classes.avatar}
+            src={avatarSrc}
+          >
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <ShareIcon />
+          </IconButton>
+        }
+        title={title}
+        subheader={subTitle}
+      />
+      <CardMedia style={{ height: "150px" }} image={imgSrc} />
       <CardContent>
         <Typography
           className={classes.title}
           color="textSecondary"
           gutterBottom
         >
-          World of the day
+          Title
         </Typography>
         <Typography variant="h5" component="h2">
-          benevolent
+          h2 as h5
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          {" "}
-          adjective
+          secondaryText
         </Typography>
         <Typography variant="body2" component="p">
-          {" "}
-          well meaning
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small"> learn more</Button>
+        <Button size="small"> Buy Now</Button>
+        <Button size="small"> Offer</Button>
       </CardActions>
     </Card>
   );

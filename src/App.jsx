@@ -7,15 +7,15 @@ function App() {
   return (
     <div className="App">
       <Grid container direction="column">
-        <Grid Item>
+        <Grid item>
           <Header />
         </Grid>
         <Grid item container>
-          <Grid item xs={0} sm={2} />
+          <Grid item xs={false} sm={2} />
           <Grid item xs={12} sm={8}>
             <Content/>
           </Grid>
-          <Grid item xs={0} sm={2} />
+          <Grid item xs={false} sm={2} />
         </Grid>
       </Grid>
     </div>
