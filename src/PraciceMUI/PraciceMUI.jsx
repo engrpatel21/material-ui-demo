@@ -1,15 +1,29 @@
 import React from 'react';
-import { Button, Typography } from '@material-ui/core'
+import { Button, makeStyles, Typography } from '@material-ui/core'
+
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  helloThereStyle: {
+    fontStyle: 'oblique',
+    color: 'red'
+  },
+  buttonStyles: {
+    color: 'green'
+  }
+});
 
 const PracticeMUI = () => {
+
+  const classes = useStyles()
+
   return ( 
-    <div style={{
-      display: 'flex',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
-      <Typography color='primary' variant='h1'>
+    <div className={classes.root}>
+      <Typography color='primary' variant='h1' className={classes.helloThereStyle}>
         Hello There
       </Typography>
       <Button color='secondary' variant='outlined' >
